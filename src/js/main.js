@@ -1,4 +1,5 @@
 import _ from 'lodash'
+// const _ = require('lodash');
 
 function rand (max) {
   return Math.floor(Math.random() * max)

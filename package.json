@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "source": "src/index.html",
-  "scripts": {},
+  "scripts": {
+    "start": "npx parcel",
+    "build": "parcel build --dist-dir dist",
+    "lint": "eslint src/js",
+    "test": "npx jest"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
