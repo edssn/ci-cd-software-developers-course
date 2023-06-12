@@ -1,13 +1,16 @@
 {
+  "homepage": "https://edssn.github.io/ci-cd-software-developers-course",
   "name": "capstone",
   "version": "1.0.0",
   "description": "",
   "source": "src/index.html",
   "scripts": {
     "start": "npx parcel",
-    "build": "parcel build --dist-dir dist",
+    "build": "npx parcel build --dist-dir public",
     "lint": "eslint src/js",
-    "test": "npx jest"
+    "test": "npx jest",
+    "deploy": "npm run build && npx gh-pages -d public",
+    "ci": "npm run lint && npm run test && npm run deploy"
   },
   "keywords": [],
   "author": "",
