@@ -1,0 +1,24 @@
+{
+  "name": "capstone",
+  "version": "1.0.0",
+  "description": "",
+  "source": "src/index.html",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "parcel": "^2.9.2"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.9.2",
+    "eslint": "^8.42.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^16.0.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "jest": "^29.5.0"
+  }
+}
