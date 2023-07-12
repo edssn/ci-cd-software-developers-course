@@ -29,7 +29,7 @@ jobs:
 
     - name: Deploy with gh-pages
       run: |
-        git remote set-url origin https://git:${GH_ACCESS_TOKEN}@github.com/edssn/ci-cd-software-developers-course.git
+        git remote set-url origin https://${GH_ACCESS_TOKEN}@github.com/edssn/ci-cd-software-developers-course.git
         npx gh-pages -d public -u "github-actions-bot <support+actions@github.com>"
       env:
         GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
