@@ -1,5 +1,5 @@
 // import shuffle from '../src/js';
-const shuffle = require('../src/js/main')
+// const shuffle = require('../src/js/main')
 //const parse2 = require('../src/js/main.js');
 
 describe("shuffle", () => {
