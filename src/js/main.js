@@ -41,7 +41,7 @@ function displayVictoryMess (moves) {
 }
 
 function toggleVisablity (id) {
-  console.log("Clic en boton");
+  // console.log("Clic en boton");
   if (document.getElementById(id).style.visibility === 'visible') {
     document.getElementById(id).style.visibility = 'hidden'
   } else {
@@ -574,17 +574,17 @@ window.onresize = function () {
 }
 
 function makeMaze () {
-  console.log("makeMaze");
+  // console.log("makeMaze");
   // document.getElementById("mazeCanvas").classList.add("border");
   if (player !== undefined) {
     player.unbindKeyDown()
     player = null
   }
   const e = document.getElementById('diffSelect')
-  console.log(e);
+  // console.log(e);
   difficulty = e.options[e.selectedIndex].value
   difficulty = 38
-  console.log(difficulty);
+  // console.log(difficulty);
   cellSize = mazeCanvas.width / difficulty
   maze = new Maze(difficulty, difficulty)
   draw = new DrawMaze(maze, ctx, cellSize, finishSprite)
@@ -594,4 +594,4 @@ function makeMaze () {
   }
 }
 
-module.exports = shuffle;
+module.exports = shuffle
