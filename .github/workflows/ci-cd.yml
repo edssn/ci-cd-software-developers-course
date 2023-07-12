@@ -29,7 +29,7 @@ jobs:
 
     - name: Set username
       run: |
-        cd app_repo
+        cd ci-cd-software-developers-course
         git config --local user.email "edissonf.sigua@gmail.com"
         git config --local user.name "edssn"
 
