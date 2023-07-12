@@ -27,11 +27,12 @@ jobs:
     - name: Run Tests
       run: npm run test
 
-    - name: Set username
+    - name: Deploy with gh-pages
       run: |
-        ls -lh
-        git config --local user.email "edissonf.sigua@gmail.com"
-        git config --local user.name "edssn"
+        git remote set-url origin https://git:${GH_ACCESS_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+        npx gh-pages -d public -u "github-actions-bot <support+actions@github.com>"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
 
     - name: Deploy to GitHub Pages
       run: npm run deploy
