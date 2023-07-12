@@ -34,6 +34,9 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+      with:
+        repository: ${{github.repository}}
+        username: ${{secrets.USERNAME}}
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
