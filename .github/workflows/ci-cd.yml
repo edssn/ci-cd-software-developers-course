@@ -28,7 +28,6 @@ jobs:
       run: npm run test
 
     - name: Deploy with gh-pages
-      uses: nicoinch/ghpages@v3.0.0-alpha-1
       run: |
         git remote set-url origin https://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@github.com/edssn/ci-cd-software-developers-course.git  
         npx gh-pages -d public -u "github-actions-bot <support+actions@github.com>"
