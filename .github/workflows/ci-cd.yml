@@ -27,37 +27,6 @@ jobs:
     - name: Run Tests
       run: npm run test
 
-    - name: Any Name Bash Test Step
-      run: |
-        echo "GH_REPO: $GH_REPO"
-        echo "GH_REPO_O: $GH_REPO_O"
-        echo "GH_TOKEN: $GH_T"
-        echo "GH_REPOSITORY: $GITHUB_REPOSITORY"
-        echo "GH_ACCESS_TOKEN: $GH_A" 
-      env:
-        GH_REPO: ${{ github.repository }}
-        GH_REPO_O: ${{ github.repository_owner }}
-        GH_T: ${{ secrets.GITHUB_TOKEN }}
-        GH_A: ${{ secrets.GH_ACCESS_TOKEN }}
-
-    - name: "Echo in file"
-      env:
-        SECRETS_VARS: ${{ toJson(secrets) }}
-      run: echo "$SECRETS_VARS" > "secrets.txt"
-
-    - name: "Echo in file"
-      run: ls -lh && cat secrets.txt
-
-    - name: Deploy with gh-pages
-      run: |
-        git remote set-url origin https://git:${GH_A}@github.com/${GITHUB_REPOSITORY}.git
-        npx gh-pages -d dist -u "edssn <edissonf.sigua@gmail.com>" 
-      env:
-        GH_A: ${{ secrets.GH_ACCESS_TOKEN }}
-
-    - name: Deploy to GitHub Pages
-      run: npm run deploy
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -79,7 +48,6 @@ jobs:
     - name: Configure Access Token
       run: |
         git remote set-url origin https://git:${GH_ACCESS_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-        npm run deploy
       env:
         GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
 
