@@ -28,16 +28,16 @@ jobs:
       run: npm run test
 
     - name: Any Name Bash Test Step
-        shell: bash
-        run: |
-          echo "GH_REPO: $GH_REPO"
-          echo "GH_REPO_O: $GH_REPO_O"
-          echo "GH_T: $GH_T"
-          echo "GH_T: $GITHUB_REPOSITORY"
-        env:
-          GH_REPO: ${{ github.repository }}
-          GH_REPO_O: ${{ github.repository_owner }}
-          GH_T: ${{ secrets.GITHUB_TOKEN }}
+      shell: bash
+      run: |
+        echo "GH_REPO: $GH_REPO"
+        echo "GH_REPO_O: $GH_REPO_O"
+        echo "GH_T: $GH_T"
+        echo "GH_T: $GITHUB_REPOSITORY"
+      env:
+        GH_REPO: ${{ github.repository }}
+        GH_REPO_O: ${{ github.repository_owner }}
+        GH_T: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Deploy with gh-pages
       run: |
