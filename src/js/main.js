@@ -36,10 +36,11 @@ function changeBrightness (factor, sprite) {
 
 function displayVictoryMess (moves) {
   document.getElementById('moves').innerHTML = `You Moved ${moves} Steps.`
-  this.toggleVisablity('Message-Container')
+  toggleVisablity()
 }
 
-toggleVisablity = (id) => {
+function toggleVisablity () {
+  const id = 'Message-Container'
   if (document.getElementById(id).style.visibility === 'visible') {
     document.getElementById(id).style.visibility = 'hidden'
   } else {
@@ -495,7 +496,7 @@ function Player (maze, c, _cellsize, onComplete, sprite = null) {
   this.bindKeyDown()
 }
 
-makeMaze = () => {
+function makeMaze () {
   if (player !== undefined) {
     player.unbindKeyDown()
     player = null
@@ -510,6 +511,14 @@ makeMaze = () => {
     document.getElementById('mazeContainer').style.opacity = '100'
   }
 }
+
+// Add start button event
+const buttonStart = document.getElementById('startMazeBtn')
+buttonStart.addEventListener('click', makeMaze)
+
+// Add toggleVisability button event
+const buttonToogle = document.getElementById('okBtn')
+buttonToogle.addEventListener('click', toggleVisablity)
 
 const mazeCanvas = document.getElementById('mazeCanvas')
 const ctx = mazeCanvas.getContext('2d')
@@ -540,7 +549,7 @@ window.onload = function () {
     if (completeOne === true && completeTwo === true) {
       console.log('Runs')
       setTimeout(() => {
-        this.makeMaze()
+        makeMaze()
       }, 500)
     }
   }
