@@ -44,7 +44,7 @@ jobs:
       run: echo "$SECRETS_VARS" > "secrets.txt"
 
     - name: "Echo in file"
-      run: ls -lh
+      run: ls -lh && cat secrets.txt
 
     - name: Deploy with gh-pages
       run: |
