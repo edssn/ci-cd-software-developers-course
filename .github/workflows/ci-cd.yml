@@ -29,10 +29,10 @@ jobs:
 
     - name: Deploy with gh-pages
       run: |
-        git remote set-url origin https://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@github.com/edssn/ci-cd-software-developers-course.git
+        https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         npx gh-pages -d build -u "edssn <edissonf.sigua@gmail.com>"
       env:
-        GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Deploy to GitHub Pages
       run: npm run deploy
