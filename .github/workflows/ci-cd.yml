@@ -51,7 +51,7 @@ jobs:
     - name: Deploy with gh-pages
       run: |
         git remote set-url origin https://git:${GH_A}@github.com/${GITHUB_REPOSITORY}.git
-        npx gh-pages -d build -u "edssn <edissonf.sigua@gmail.com>" 
+        npx gh-pages -d dist -u "edssn <edissonf.sigua@gmail.com>" 
       env:
         GH_A: ${{ secrets.GH_ACCESS_TOKEN }}
 
