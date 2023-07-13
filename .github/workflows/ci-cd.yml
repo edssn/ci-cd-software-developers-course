@@ -29,7 +29,7 @@ jobs:
 
     - name: Deploy with gh-pages
       run: |
-        https://git:${GITHUB_TOKEN}@github.com/edssn/ci-cd-software-developers-course.git 
+        https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         npx gh-pages -d build -u "edssn <edissonf.sigua@gmail.com>"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
