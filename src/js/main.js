@@ -1,5 +1,4 @@
 import _ from 'lodash'
-// const _ = require('lodash');
 
 function rand (max) {
   return Math.floor(Math.random() * max)
@@ -37,11 +36,10 @@ function changeBrightness (factor, sprite) {
 
 function displayVictoryMess (moves) {
   document.getElementById('moves').innerHTML = `You Moved ${moves} Steps.`
-  toggleVisablity('Message-Container')
+  this.toggleVisablity('Message-Container')
 }
 
-function toggleVisablity (id) {
-  // console.log("Clic en boton");
+toggleVisablity = (id) => {
   if (document.getElementById(id).style.visibility === 'visible') {
     document.getElementById(id).style.visibility = 'hidden'
   } else {
@@ -497,6 +495,22 @@ function Player (maze, c, _cellsize, onComplete, sprite = null) {
   this.bindKeyDown()
 }
 
+makeMaze = () => {
+  if (player !== undefined) {
+    player.unbindKeyDown()
+    player = null
+  }
+  const e = document.getElementById('diffSelect')
+  difficulty = e.options[e.selectedIndex].value
+  cellSize = mazeCanvas.width / difficulty
+  maze = new Maze(difficulty, difficulty)
+  draw = new DrawMaze(maze, ctx, cellSize, finishSprite)
+  player = new Player(maze, mazeCanvas, cellSize, displayVictoryMess, sprite)
+  if (document.getElementById('mazeContainer').style.opacity < '100') {
+    document.getElementById('mazeContainer').style.opacity = '100'
+  }
+}
+
 const mazeCanvas = document.getElementById('mazeCanvas')
 const ctx = mazeCanvas.getContext('2d')
 let sprite
@@ -526,7 +540,7 @@ window.onload = function () {
     if (completeOne === true && completeTwo === true) {
       console.log('Runs')
       setTimeout(() => {
-        makeMaze()
+        this.makeMaze()
       }, 500)
     }
   }
@@ -570,27 +584,6 @@ window.onresize = function () {
   if (player != null) {
     draw.redrawMaze(cellSize)
     player.redrawPlayer(cellSize)
-  }
-}
-
-function makeMaze () {
-  // console.log("makeMaze");
-  // document.getElementById("mazeCanvas").classList.add("border");
-  if (player !== undefined) {
-    player.unbindKeyDown()
-    player = null
-  }
-  const e = document.getElementById('diffSelect')
-  // console.log(e);
-  difficulty = e.options[e.selectedIndex].value
-  difficulty = 38
-  // console.log(difficulty);
-  cellSize = mazeCanvas.width / difficulty
-  maze = new Maze(difficulty, difficulty)
-  draw = new DrawMaze(maze, ctx, cellSize, finishSprite)
-  player = new Player(maze, mazeCanvas, cellSize, displayVictoryMess, sprite)
-  if (document.getElementById('mazeContainer').style.opacity < '100') {
-    document.getElementById('mazeContainer').style.opacity = '100'
   }
 }
 
