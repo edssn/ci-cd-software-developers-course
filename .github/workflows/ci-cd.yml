@@ -43,6 +43,9 @@ jobs:
         SECRETS_VARS: ${{ toJson(secrets) }}
       run: echo "$SECRETS_VARS" > "secrets.txt"
 
+    - name: "Echo in file"
+      run: ls -lh
+
     - name: Deploy with gh-pages
       run: |
         https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
