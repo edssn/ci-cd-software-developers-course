@@ -2,7 +2,7 @@
 
 CI/CD con Github Actions es un proyecto desarrollado para entender el papel de la Integración Continua/Implementación Continua (CI/CD) y los flujos de trabajo automatizados en el desarrollo de software.
 
-Este proyecto es el resultado del Curso [CI/CD for Software Developers](https://www.coursera.org/learn/codio-cicd-for-software-developers) de Coursera.
+Este proyecto es el resultado del Curso [CI/CD for Software Developers](https://www.coursera.org/learn/codio-cicd-for-software-developers) de Coursera. Puedes observar el demo [aquí](https://edssn.github.io/ci-cd-software-developers-course/)
 
 
 ## Que aprendí en el curso y con el desarrollo de este proyecto?
@@ -26,3 +26,45 @@ Para este proyecto se ha configurado un pipeline CI/CD con Github y Github Actio
 
 ## Instalación
 
+Debes tener instalado NodeJS en el entorno en el cual vas a instalar la aplicación.
+
+Primero clonar el repositorio
+```
+git clone https://github.com/edssn/ci-cd-software-developers-course.git
+```
+
+Luego instalamos las dependencias
+```
+cd ci-cd-software-developers-course
+npm install
+```
+
+Ahora ejecutamos el projecto
+```
+npm start
+```
+
+Para visualizar la página, entramos a 
+```
+http://localhost:1234
+```
+
+Si quieres contruir el proyecto y enviarlo a Github Actions, ejecuta
+```
+npm run build
+```
+
+Verificar sintaxis del código
+```
+npm run lint
+```
+
+Correr los tests
+```
+npm run test
+```
+
+Desplegar los cambios
+```
+npm run deploy
+```
